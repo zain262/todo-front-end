@@ -1,0 +1,94 @@
+.App {
+  text-align: center;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+}
+
+.button-class {
+  width: 2.3rem;
+  background-color: #6c63ff;
+  color: white;
+  border: solid #6c63ff 5px;
+  border-radius: 10%;
+  transition: background-color 1s ease, border 1s ease;
+  cursor: pointer;
+}
+
+.button-class:hover {
+  background-color: white;
+  color: #6c63ff;
+  border: solid white 5px;
+  border-radius: 10%;
+}
+
+.logo-class {
+  color: rgb(211, 211, 211);
+  stroke-width: 2;
+}
+
+.plug-logo {
+  color: rgb(211, 211, 211);
+  stroke-width: 2;
+}
+
+.search-bar {
+  border: solid #6c63ff 1px;
+  border-radius: 5px;
+  font-family: "Kanit", sans-serif;
+  color: rgb(153, 153, 153);
+  padding: 8px;
+  transition: border-color 1s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  border: solid #4c43e0 2px;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+}
+
+.drop-down {
+  border: solid #6c63ff 1px;
+  border-radius: 5px;
+  font-family: "Kanit", sans-serif;
+  color: rgb(153, 153, 153);
+  padding: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.drop-down:focus {
+  border: solid #4c43e0 2px;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+}
+
+.header-class {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100vh;
+}
+
+.header-title {
+  flex-grow: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding-left: 6rem;
+  font-size: 1.5rem;
+}
+
+.right-container {
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 1rem;
+}

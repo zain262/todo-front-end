@@ -23,10 +23,13 @@ function Register() {
     }
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/v1/user/signup", {
-        username: user,
-        password,
-      });
+      const res = await axios.post(
+        "https://todo-backend-teal-kappa.vercel.app/api/v1/user/signup",
+        {
+          username: user,
+          password,
+        }
+      );
 
       console.log(res);
       setLoading(false);

@@ -7,7 +7,9 @@ function Admin() {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get("http://127.0.0.1:8000/api/v1/todo/getAll");
+      const res = await axios.get(
+        "https://todo-backend-teal-kappa.vercel.app/api/v1/todo/getAll"
+      );
       console.log(res.data.data);
       setList(res.data.data);
     };

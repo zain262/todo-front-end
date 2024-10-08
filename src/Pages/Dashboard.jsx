@@ -26,7 +26,7 @@ function Dashboard() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/api/v1/todo/getList",
+          "https://todo-backend-teal-kappa.vercel.app/api/v1/todo/getList",
           { withCredentials: true }
         );
         setOriginalList(response.data.data.list);
@@ -44,7 +44,7 @@ function Dashboard() {
     const updateList = async () => {
       try {
         await axios.patch(
-          "http://127.0.0.1:8000/api/v1/todo/updateList",
+          "https://todo-backend-teal-kappa.vercel.app/api/v1/todo/updateList",
           { list: originalList },
           { withCredentials: true }
         );
@@ -60,7 +60,7 @@ function Dashboard() {
 
   const logout = async () => {
     try {
-      await axios.get("http://127.0.0.1:8000/api/v1/user/logout", {
+      await axios.get("hhttps://todo-backend-teal-kappa.vercel.app/api/v1/user/logout", {
         withCredentials: true,
       });
       setRole("");

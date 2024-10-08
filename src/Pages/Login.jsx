@@ -18,10 +18,13 @@ function Login() {
     setError("");
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/v1/user/login", {
-        username: user,
-        password: password,
-      });
+      const res = await axios.post(
+        "https://todo-backend-teal-kappa.vercel.app/api/v1/user/login",
+        {
+          username: user,
+          password: password,
+        }
+      );
 
       setRole(res.data.role);
 
@@ -42,7 +45,6 @@ function Login() {
     <div className="login-page">
       <p>Welcome! Please Log-in</p>
       {error && <p className="error-message">{error}</p>}{" "}
-      {/* Display error message */}
       <label>Username</label>
       <input
         type="text"

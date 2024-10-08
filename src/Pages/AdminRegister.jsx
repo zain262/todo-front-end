@@ -25,7 +25,7 @@ function AdminRegister() {
     try {
       console.log(username);
       const res = await axios.post(
-        "http://127.0.0.1:8000/api/v1/user/makeadmin",
+        "https://todo-backend-teal-kappa.vercel.app/api/v1/user/makeadmin",
         {
           username,
           password,

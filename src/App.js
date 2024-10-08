@@ -26,6 +26,7 @@ function App() {
               role === "admin" ? <AdminRegister /> : <Navigate to="/login" />
             }
           />
+          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </BrowserRouter>
     </RoleContext.Provider>

@@ -60,7 +60,7 @@ function Dashboard() {
 
   const logout = async () => {
     try {
-      await axios.get("hhttps://todo-backend-teal-kappa.vercel.app/api/v1/user/logout", {
+      await axios.post("hhttps://todo-backend-teal-kappa.vercel.app/api/v1/user/logout", {
         withCredentials: true,
       });
       setRole("");

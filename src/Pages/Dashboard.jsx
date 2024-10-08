@@ -60,9 +60,13 @@ function Dashboard() {
 
   const logout = async () => {
     try {
-      await axios.post("hhttps://todo-backend-teal-kappa.vercel.app/api/v1/user/logout", {
-        withCredentials: true,
-      });
+      await axios.post(
+        "https://todo-backend-teal-kappa.vercel.app/api/v1/user/logout",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
       setRole("");
       nav("/login");
     } catch (err) {

@@ -5,6 +5,8 @@ import Entry from "../Components/Entry";
 function Admin() {
   const [list, setList] = useState([]);
 
+  //PAGE FOR ADMIN VIEW
+  //Fetches all the lists and users pertainng to those lists and then passes them to Entry to be displayed
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(

@@ -4,6 +4,7 @@ import axios from "axios";
 import "./Login.css";
 
 function AdminRegister() {
+  //Ssame as the orignal register function but instead sends reques to make admin
   const [username, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [conpassword, setConpassword] = useState("");

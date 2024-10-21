@@ -2,9 +2,11 @@ import { useState } from "react";
 import "./ModalEdit.css";
 
 function ModalAdd({ modal, setModal, addNew }) {
+  //States to manage form input
   const [desc, setDesc] = useState("");
   const [title, setTitle] = useState("");
 
+  //Update descripion and title
   const handleDesc = (e) => {
     setDesc(e.target.value);
   };
@@ -13,6 +15,7 @@ function ModalAdd({ modal, setModal, addNew }) {
     setTitle(e.target.value);
   };
 
+  //Function to add a new todo item by first creating it and sending it to addNew function
   const add = () => {
     setModal(!modal);
     const note = {

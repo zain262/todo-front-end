@@ -2,14 +2,17 @@ import "./ModalEdit.css";
 import { useState, useEffect } from "react";
 
 function ModalEdit({ modal, setModal, edit, id, text, descrip }) {
-  const [desc, setDesc] = useState(descrip || ""); // Initialize with existing description
-  const [title, setTitle] = useState(text || ""); // Initialize with existing title
+  //Create states to edit a post
+  const [desc, setDesc] = useState(descrip || "");
+  const [title, setTitle] = useState(text || "");
 
+  //On load fill the initial form with current values
   useEffect(() => {
     setDesc(descrip);
     setTitle(text);
   }, [descrip, text]);
 
+  //Function to update the states to ensure they relfect the users input
   const handleDesc = (e) => {
     setDesc(e.target.value);
   };
@@ -18,6 +21,7 @@ function ModalEdit({ modal, setModal, edit, id, text, descrip }) {
     setTitle(e.target.value);
   };
 
+  //on update send the new content to the edit function and turn the modal off
   const update = () => {
     const note = {
       text: title,

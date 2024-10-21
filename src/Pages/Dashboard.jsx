@@ -12,6 +12,7 @@ import Admin from "./Admin";
 import axios from "axios";
 
 function Dashboard() {
+  //State variables to manage the to do list and modals
   const [originalList, setOriginalList] = useState([]);
   const [modal, setModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,11 +37,12 @@ function Dashboard() {
         nav("/login");
       }
     };
-
+    //Fetch the list pertaining to the user
     fetchData();
   }, []);
 
   useEffect(() => {
+    //If the list changes send an update request with the list to the back end
     const updateList = async () => {
       try {
         await axios.patch(
@@ -59,10 +61,10 @@ function Dashboard() {
   }, [originalList]);
 
   const logout = async () => {
+    //Upon log out send a logout request and redirect to login page
     try {
-      await axios.post(
-        "https://todo-backend-teal-kappa.vercel.app/api/v1/user/logout",
-        {},
+      await axios.get(
+        "hhttps://todo-backend-teal-kappa.vercel.app/api/v1/user/logout",
         {
           withCredentials: true,
         }
@@ -74,6 +76,7 @@ function Dashboard() {
     }
   };
 
+  //Function to delete a item from the list by filtering it out
   const deleteFunc = (id) => {
     setOriginalList((prevList) => prevList.filter((item) => item.id !== id));
   };
@@ -81,7 +84,7 @@ function Dashboard() {
   const applyFilter = () => {
     let filtered = [...originalList];
 
-    // Apply the current filter
+    //Used to apply drop down filter
     switch (currentFilter) {
       case "Done":
         filtered = filtered.filter((item) => item.done === true);
@@ -97,6 +100,7 @@ function Dashboard() {
     }
 
     if (searchTerm) {
+      //If the user enters a search term filter the array further
       filtered = filtered.filter((el) =>
         el.text.toLowerCase().includes(searchTerm.toLowerCase())
       );
@@ -107,15 +111,18 @@ function Dashboard() {
 
   const filter = (filterValue) => {
     setCurrentFilter(filterValue);
+    //Used to get the filter value
   };
 
   const editFunc = (note, id) => {
+    //Reset the orignal list to be alligned with the edit
     setOriginalList((prevList) =>
       prevList.map((item) => (item.id === id ? { ...item, ...note } : item))
     );
   };
 
   const setFav = (id) => {
+    //Reset the list to allign with a new item being favorited
     setOriginalList((prevList) =>
       prevList.map((item) =>
         item.id === id ? { ...item, fav: !item.fav } : item
@@ -124,6 +131,7 @@ function Dashboard() {
   };
 
   const setDone = (id) => {
+    //Reset the list to allign with a new item being finished
     setOriginalList((prevList) =>
       prevList.map((item) =>
         item.id === id ? { ...item, done: !item.done } : item
@@ -132,6 +140,7 @@ function Dashboard() {
   };
 
   const addNew = (el) => {
+    //Add a new item to the list
     setOriginalList((prevList) => [...prevList, el]);
   };
 
@@ -139,7 +148,7 @@ function Dashboard() {
     setSearchTerm(term);
   };
 
-  const filteredList = applyFilter(); // Get the filtered list
+  const filteredList = applyFilter();
 
   return (
     <div

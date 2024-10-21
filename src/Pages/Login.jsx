@@ -5,6 +5,7 @@ import { RoleContext } from "../App";
 import "./Login.css";
 
 function Login() {
+  //Create all the states to manage the form input and logging in
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -16,7 +17,7 @@ function Login() {
   const login = async () => {
     setLoading(true);
     setError("");
-
+    //Set loading to true while the server is trying to log in the user
     try {
       const res = await axios.post(
         "https://todo-backend-teal-kappa.vercel.app/api/v1/user/login",
@@ -25,10 +26,11 @@ function Login() {
           password: password,
         }
       );
-
+      //Send post request to log in user
       setRole(res.data.role);
-
+      //Set the role context using the data
       nav("/dashboard");
+      //Upon log in go to the dashboard
     } catch (err) {
       console.log(err);
       setError("Invalid username or password.");

@@ -4,6 +4,7 @@ import axios from "axios";
 import "./Login.css";
 
 function Register() {
+  //Functionn is used to send a post request to register a user
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [conpassword, setConpassword] = useState("");
@@ -22,6 +23,7 @@ function Register() {
       return;
     }
 
+    //Functionn is used to send a post request to register a user
     try {
       const res = await axios.post(
         "https://todo-backend-teal-kappa.vercel.app/api/v1/user/signup",
@@ -30,12 +32,13 @@ function Register() {
           password,
         }
       );
-
+      //Send register request to log in user
       console.log(res);
       setLoading(false);
       setError("");
 
       nav("/dashboard");
+      //go to dashboard upon sucessful reg
     } catch (err) {
       console.error(err);
       setLoading(false);

@@ -6,8 +6,9 @@ import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
 import "./Entry.css";
 
 function Entry({ desc, text, doneI, favI, del, id, edit, favF, doneF }) {
+  
+  //Create states to manage the todo items features
   const [done, setDone] = useState(doneI);
-
   const [fav, setFav] = useState(favI);
   const [modal, setModal] = useState(false);
   const [showDesc, setShow] = useState(false);
@@ -16,7 +17,7 @@ function Entry({ desc, text, doneI, favI, del, id, edit, favF, doneF }) {
     setFav(!fav);
     favF(id);
   };
-
+  //function to set done and fav
   const newDone = () => {
     setDone(!done);
     doneF(id);
